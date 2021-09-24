@@ -1,0 +1,42 @@
+<html>
+	
+	<head th:replace = "~{base :: head}">	</head>
+	
+	<body>
+	<div th:replace = "~{base :: logo}"></div>
+
+	<div class = "container">
+		<div th:replace = "~{base :: titulo('Bem-Vindo') }"></div>
+		
+			<div class="card mb-3" th:each = "pedido : ${pedidos}">
+		
+				<div class="alert alert-dark" th:text = "${pedido.nomeProduto}">Nome do Produto</div>
+			
+				<div class = "card-body">
+					<div class="row">
+						<div class="col-12 col-sm-6 mb-3" >
+							<div class ="row mb-3">
+								<div class="col-md-5">Valor: <spam th:text = "${pedido.valorNegociado}" >200,20</spam></div>
+								<div class="col-md-7">Data de Entrega: <spam th:text = "${pedido.dataEntrega}">10/02/2020</spam></div>
+							</div>
+							<div>Produto</div>
+							<div> 
+								<input class="form-control" th:value = "${pedido.urlPedido}" value = "url do produto" Url do Produto/>
+							</div>
+							
+							<div>Descrição</div>
+							<div>
+								<textarea  class="form-control" th:text = "${pedido.descricao}">Descrição do pedido</textarea>
+							</div>
+						</div>
+						<div class="col-12 col-sm-4">
+							<div>
+								<img class="img-thumbnail" th:src = "${pedido.urlImagem}" src=""/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
